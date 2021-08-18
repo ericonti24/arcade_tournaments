@@ -9,11 +9,11 @@ class ArcadeTournaments::CLI
 
     def get_months
         #to be scraped 
-        @months = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        @months = ArcadeTournaments::Months.all
     end
 
     def list_months
-        puts "Choose a month to see tournaments."
+        puts "Choose a number for the month to see tournaments."
         #list months for user
         @months.each.with_index(1) do |month, index|
             puts "#{index}. #{month}."
@@ -21,14 +21,17 @@ class ArcadeTournaments::CLI
     end
 
     def get_user_month
-        chosen_month = gets.strip
-        binding.pry
-        if valid_input(chosen_month, @months)
-        end
+        chosen_month = gets.strip.to_i
+        show_tournaments_for(chosen_month) if valid_input(chosen_month, @months)
     end
+
 
     def valid_input(input, data)
         input.to_i <= data.length && input.to_i > 0
     end
 
+    def show_tournaments_for(chosen_month)
+       month = @months[chosen_month - 1]
+       puts "Tournaments for #{month}"
+    end
 end
