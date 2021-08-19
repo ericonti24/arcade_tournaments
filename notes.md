@@ -1,7 +1,7 @@
 process
-user is provided with list of tournaments
-user selects tournament
-tournament shows month and detials
+user is provided with list of months
+user selects month
+selected month shows tournaments and detials
 
 classes
 Tournament
@@ -9,4 +9,6 @@ CLI
 Scraper
 
         class relationships
-            tournament has months and detisls
+            month has tournaments and detisls
+
+            

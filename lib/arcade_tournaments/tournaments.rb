@@ -1,7 +1,7 @@
-class ArcadeTournaments::Tournaments
-    @@all = []
+class ArcadeTournaments::Tournaments 
 
     attr_accessor :name, :details
+    @@all = []
 
     def initialize(name)
         @name = name
@@ -14,9 +14,8 @@ class ArcadeTournaments::Tournaments
         @@all
     end
 
-    def details
+    def get_details
         ArcadeTournaments::Scraper.scrape_details(self) if @details.empty?
-        @details
     end
 
     def save

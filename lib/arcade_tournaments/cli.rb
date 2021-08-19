@@ -31,9 +31,10 @@ class ArcadeTournaments::CLI
 
     def show_tournaments_for(chosen_tournament)
        tournament = @tournaments[chosen_tournament - 1]
-       tournaments.get_details
+       tournament.get_details
        puts "Here are the details for #{tournament.name}"
-       tournament.details.each.with_index(1) do |detail, index|
-        puts "#{index} #{events.date}"
+       tournament.details.each.with_index(1) do |detail|
+        puts "#{detail.date}"
+       end
     end
 end

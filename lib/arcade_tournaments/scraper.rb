@@ -11,7 +11,8 @@ class ArcadeTournaments::Scraper
     end
 
     def self.scrape_details(tournament)
-        
+        ArcadeTournaments::Details.new("Aug. 31", tournament)
+        ArcadeTournaments::Details.new("Dec. 4", tournament)
     end
 
 end

@@ -3,8 +3,9 @@
 require_relative "arcade_tournaments/version"
 require_relative "arcade_tournaments/cli"
 require_relative "arcade_tournaments/tournaments"
-require_relative "arcade_tournaments/scraper"
 require_relative "arcade_tournaments/details"
+require_relative "arcade_tournaments/scraper"
+
 
 require 'pry'
 require 'nokogiri'
