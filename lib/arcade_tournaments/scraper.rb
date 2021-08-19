@@ -9,4 +9,9 @@ class ArcadeTournaments::Scraper
             ArcadeTournaments::Tournaments.new(name)
         end
     end
+
+    def self.scrape_details(tournament)
+        
+    end
+
 end
