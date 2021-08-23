@@ -6,13 +6,19 @@ class ArcadeTournaments::Scraper
 
         tournaments.each do |t|
             name = t.css(".eventlist-title").text
-            ArcadeTournaments::Tournaments.new(name)
+            url = t.css("a").attr("href").value
+            ArcadeTournaments::Tournaments.new(name, url)
         end
     end
 
     def self.scrape_details(tournament)
-        ArcadeTournaments::Details.new("Aug. 31", tournament)
-        ArcadeTournaments::Details.new("Dec. 4", tournament)
+        url = "https://www.electricbatarcade.com#{tournament.url}"
+        page = Nokogiri::HTML(open(url)) 
+        date = page.css("li.eventitem-meta-date")
+        date.each do |d|
+            date = d.css('time.event-date').text
+            ArcadeTournaments::Details.new(date, tournament)
+        
+        end
     end
-
 end
