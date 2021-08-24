@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Take your pick to see the details for any of the upcoming arcade tournaments by selecting the number next to the desired tournament.
 
 ## Development
 
