@@ -14,7 +14,7 @@ class ArcadeTournaments::Details
         @@all 
     end
     
-    def add_to_tournament
+    def add_to_tournament #allows details to know about tournaments. 
         @tournament.details << self unless @tournament.details.include?(self)
     end
 
