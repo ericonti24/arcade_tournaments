@@ -14,11 +14,11 @@ class ArcadeTournaments::Scraper
     def self.scrape_details(tournament)
         url = "https://www.electricbatarcade.com#{tournament.url}"
         page = Nokogiri::HTML(open(url)) 
-        date = page.css("li.eventitem-meta-date")
-        date.each do |d|
-            date = d.css('time.event-date').text
-            ArcadeTournaments::Details.new(date, tournament)
         
+        des = page.css("div.sqs-block-content p")
+        des.each do |d|
+            description = d.text
+            ArcadeTournaments::Details.new(description, tournament)
         end
     end
 end

@@ -1,9 +1,14 @@
 class ArcadeTournaments::CLI   
     def call 
     puts "\nWelcome to Arcade Tournaments!\n" 
-    get_tournaments
-    list_tournaments
-    get_user_tournament
+    @input = ""
+    until @input == "exit"
+        get_tournaments
+        list_tournaments
+        get_user_tournament
+        choose_again
+        end
+        good_luck_and_farewell
     end
 
     def get_tournaments #to be scraped
@@ -30,10 +35,18 @@ class ArcadeTournaments::CLI
     def show_tournament_for(chosen_tournament) #displays what the users chooses. 
         tournament = @tournaments[chosen_tournament - 1]
         tournament.get_details
-        puts "Here are the details for #{tournament.name}"
-        tournament.details.each.with_index(1) do |detail|
-            puts "#{detail.date}"
-    
+        puts "\nHere are the details for #{tournament.name}\n"
+        tournament.details.each do |detail|
+            puts "\n#{detail.description}\n"
         end
+    end
+
+    def choose_again
+        puts "\nHit any key to see choose another tournament, or type 'exit' if you are done.\n"
+        @input = gets.strip
+    end
+
+    def good_luck_and_farewell
+        puts "\nGood luck and farewell!\n".upcase
     end
 end
