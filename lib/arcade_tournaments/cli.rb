@@ -42,7 +42,7 @@ class ArcadeTournaments::CLI
     end
 
     def choose_again #user can press any key to enter to go back to tournament options. 
-        puts "\nHit any key to see choose another tournament, or type 'exit' if you are done.\n"
+        puts "\nHit any key to select another tournament, or type 'exit' if you are done.\n"
         @input = gets.strip
     end
 
